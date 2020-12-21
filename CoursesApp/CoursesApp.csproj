@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,6 +97,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="MapDBEntities\CoursesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoursesModel.Context.cs</LastGenOutput>
+      <DependentUpon>CoursesModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MapDBEntities\CoursesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CoursesModel.edmx</DependentUpon>
+      <LastGenOutput>CoursesModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -96,10 +114,56 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MapDBEntities\Admin.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\Category.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\Course.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\CoursesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoursesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\CoursesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\CoursesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoursesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\Course_Lessons.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\Trainee.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\Trainee_Courses.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\Trainer.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapDBEntities\User.cs">
+      <DependentUpon>CoursesModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <EntityDeploy Include="MapDBEntities\CoursesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CoursesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="MapDBEntities\CoursesModel.edmx.diagram">
+      <DependentUpon>CoursesModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -112,6 +176,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
