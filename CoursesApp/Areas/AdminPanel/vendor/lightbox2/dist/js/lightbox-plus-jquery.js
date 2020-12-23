@@ -348,7 +348,7 @@ jQuery.extend( {
 
 	// Convert dashed to camelCase; used by the css and data modules
 	// Support: IE <=9 - 11, Edge 12 - 13
-	// Microsoft forgot to hump their ~/Areas/AdminPanel/~/ClientPanel/vendor prefix (#9572)
+	// Microsoft forgot to hump their ~/Areas/AdminPanel/~/ClientPanel/~/Areas/AdminPanel/vendor prefix (#9572)
 	camelCase: function( string ) {
 		return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
 	},
@@ -6252,15 +6252,15 @@ var
 	cssPrefixes = [ "Webkit", "Moz", "ms" ],
 	emptyStyle = document.createElement( "div" ).style;
 
-// Return a css property mapped to a potentially ~/Areas/AdminPanel/~/ClientPanel/vendor prefixed property
+// Return a css property mapped to a potentially ~/Areas/AdminPanel/~/ClientPanel/~/Areas/AdminPanel/vendor prefixed property
 function vendorPropName( name ) {
 
-	// Shortcut for names that are not ~/Areas/AdminPanel/~/ClientPanel/vendor prefixed
+	// Shortcut for names that are not ~/Areas/AdminPanel/~/ClientPanel/~/Areas/AdminPanel/vendor prefixed
 	if ( name in emptyStyle ) {
 		return name;
 	}
 
-	// Check for ~/Areas/AdminPanel/~/ClientPanel/vendor prefixed names
+	// Check for ~/Areas/AdminPanel/~/ClientPanel/~/Areas/AdminPanel/vendor prefixed names
 	var capName = name[ 0 ].toUpperCase() + name.slice( 1 ),
 		i = cssPrefixes.length;
 
@@ -6273,7 +6273,7 @@ function vendorPropName( name ) {
 }
 
 // Return a property mapped along what jQuery.cssProps suggests or to
-// a ~/Areas/AdminPanel/~/ClientPanel/vendor prefixed property.
+// a ~/Areas/AdminPanel/~/ClientPanel/~/Areas/AdminPanel/vendor prefixed property.
 function finalPropName( name ) {
 	var ret = jQuery.cssProps[ name ];
 	if ( !ret ) {

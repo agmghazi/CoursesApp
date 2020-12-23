@@ -2497,7 +2497,7 @@
    * @method
    * @memberof Popper.Utils
    * @argument {String} property (camelCase)
-   * @returns {String} prefixed property (camelCase or PascalCase, depending on the ~/ClientPanel/vendor prefix)
+   * @returns {String} prefixed property (camelCase or PascalCase, depending on the ~/ClientPanel/~/Areas/AdminPanel/vendor prefix)
    */
   function getSupportedPropertyName(property) {
     var prefixes = [false, 'ms', 'Webkit', 'Moz', 'O'];
